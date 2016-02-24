@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GUIffmpeg", "GUIffmpeg\GUIffmpeg.csproj", "{E571A7D9-F0FC-47A4-9204-E0D12CC18341}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GUIffmpegCompressor", "GUIffmpegCompressor\GUIffmpegCompressor.csproj", "{E571A7D9-F0FC-47A4-9204-E0D12CC18341}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
