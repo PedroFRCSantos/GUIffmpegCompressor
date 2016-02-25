@@ -32,60 +32,60 @@
             this.textBoxFolderOut = new System.Windows.Forms.TextBox();
             this.buttonOpenFolderIn = new System.Windows.Forms.Button();
             this.buttonFolderOut = new System.Windows.Forms.Button();
-            this.tableLayoutPanelListOfVideos = new System.Windows.Forms.TableLayoutPanel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openInToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dataGridViewFilms = new System.Windows.Forms.DataGridView();
+            this.convertVideo = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.joinBefore = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.fileName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.finalName = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.buttonRun = new System.Windows.Forms.Button();
+            this.labelFolderIn = new System.Windows.Forms.Label();
+            this.labelOutputDir = new System.Windows.Forms.Label();
+            this.folderBrowserDialogIn = new System.Windows.Forms.FolderBrowserDialog();
+            this.folderBrowserDialogOut = new System.Windows.Forms.FolderBrowserDialog();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFilms)).BeginInit();
             this.SuspendLayout();
             // 
             // textBoxFolderIn
             // 
-            this.textBoxFolderIn.Location = new System.Drawing.Point(12, 27);
+            this.textBoxFolderIn.Location = new System.Drawing.Point(12, 52);
             this.textBoxFolderIn.Name = "textBoxFolderIn";
             this.textBoxFolderIn.Size = new System.Drawing.Size(591, 20);
             this.textBoxFolderIn.TabIndex = 0;
             // 
             // textBoxFolderOut
             // 
-            this.textBoxFolderOut.Location = new System.Drawing.Point(12, 81);
+            this.textBoxFolderOut.Location = new System.Drawing.Point(12, 107);
             this.textBoxFolderOut.Name = "textBoxFolderOut";
             this.textBoxFolderOut.Size = new System.Drawing.Size(591, 20);
             this.textBoxFolderOut.TabIndex = 1;
             // 
             // buttonOpenFolderIn
             // 
-            this.buttonOpenFolderIn.Location = new System.Drawing.Point(609, 25);
+            this.buttonOpenFolderIn.Location = new System.Drawing.Point(609, 50);
             this.buttonOpenFolderIn.Name = "buttonOpenFolderIn";
             this.buttonOpenFolderIn.Size = new System.Drawing.Size(75, 23);
             this.buttonOpenFolderIn.TabIndex = 2;
-            this.buttonOpenFolderIn.Text = "button1";
+            this.buttonOpenFolderIn.Text = "Browse";
             this.buttonOpenFolderIn.UseVisualStyleBackColor = true;
+            this.buttonOpenFolderIn.Click += new System.EventHandler(this.buttonOpenFolderInClick);
             // 
             // buttonFolderOut
             // 
-            this.buttonFolderOut.Location = new System.Drawing.Point(609, 78);
+            this.buttonFolderOut.Location = new System.Drawing.Point(609, 104);
             this.buttonFolderOut.Name = "buttonFolderOut";
             this.buttonFolderOut.Size = new System.Drawing.Size(75, 23);
             this.buttonFolderOut.TabIndex = 3;
-            this.buttonFolderOut.Text = "button1";
+            this.buttonFolderOut.Text = "Browse";
             this.buttonFolderOut.UseVisualStyleBackColor = true;
-            // 
-            // tableLayoutPanelListOfVideos
-            // 
-            this.tableLayoutPanelListOfVideos.ColumnCount = 2;
-            this.tableLayoutPanelListOfVideos.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanelListOfVideos.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanelListOfVideos.Location = new System.Drawing.Point(12, 118);
-            this.tableLayoutPanelListOfVideos.Name = "tableLayoutPanelListOfVideos";
-            this.tableLayoutPanelListOfVideos.RowCount = 2;
-            this.tableLayoutPanelListOfVideos.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanelListOfVideos.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanelListOfVideos.Size = new System.Drawing.Size(672, 82);
-            this.tableLayoutPanelListOfVideos.TabIndex = 4;
+            this.buttonFolderOut.Click += new System.EventHandler(this.buttonFolderOutClick);
             // 
             // menuStrip1
             // 
@@ -102,7 +102,8 @@
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.openInToolStripMenuItem,
-            this.openOutToolStripMenuItem});
+            this.openOutToolStripMenuItem,
+            this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
@@ -110,14 +111,20 @@
             // openInToolStripMenuItem
             // 
             this.openInToolStripMenuItem.Name = "openInToolStripMenuItem";
-            this.openInToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.openInToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.openInToolStripMenuItem.Text = "Open In";
             // 
             // openOutToolStripMenuItem
             // 
             this.openOutToolStripMenuItem.Name = "openOutToolStripMenuItem";
-            this.openOutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.openOutToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.openOutToolStripMenuItem.Text = "Open Out";
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.exitToolStripMenuItem.Text = "Exit";
             // 
             // helpToolStripMenuItem
             // 
@@ -130,15 +137,84 @@
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.aboutToolStripMenuItem.Text = "About";
+            // 
+            // dataGridViewFilms
+            // 
+            this.dataGridViewFilms.AllowUserToAddRows = false;
+            this.dataGridViewFilms.AllowUserToDeleteRows = false;
+            this.dataGridViewFilms.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewFilms.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewFilms.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.convertVideo,
+            this.joinBefore,
+            this.fileName,
+            this.finalName});
+            this.dataGridViewFilms.Location = new System.Drawing.Point(12, 158);
+            this.dataGridViewFilms.Name = "dataGridViewFilms";
+            this.dataGridViewFilms.Size = new System.Drawing.Size(672, 168);
+            this.dataGridViewFilms.TabIndex = 6;
+            // 
+            // convertVideo
+            // 
+            this.convertVideo.HeaderText = "Convert Video";
+            this.convertVideo.Name = "convertVideo";
+            // 
+            // joinBefore
+            // 
+            this.joinBefore.FillWeight = 150F;
+            this.joinBefore.HeaderText = "Join to Video Before:";
+            this.joinBefore.Name = "joinBefore";
+            // 
+            // fileName
+            // 
+            this.fileName.HeaderText = "Name:";
+            this.fileName.Name = "fileName";
+            this.fileName.ReadOnly = true;
+            // 
+            // finalName
+            // 
+            this.finalName.HeaderText = "Final Name:";
+            this.finalName.Name = "finalName";
+            // 
+            // buttonRun
+            // 
+            this.buttonRun.Location = new System.Drawing.Point(294, 332);
+            this.buttonRun.Name = "buttonRun";
+            this.buttonRun.Size = new System.Drawing.Size(102, 38);
+            this.buttonRun.TabIndex = 7;
+            this.buttonRun.Text = "Convert";
+            this.buttonRun.UseVisualStyleBackColor = true;
+            this.buttonRun.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // labelFolderIn
+            // 
+            this.labelFolderIn.AutoSize = true;
+            this.labelFolderIn.Location = new System.Drawing.Point(9, 36);
+            this.labelFolderIn.Name = "labelFolderIn";
+            this.labelFolderIn.Size = new System.Drawing.Size(63, 13);
+            this.labelFolderIn.TabIndex = 8;
+            this.labelFolderIn.Text = "Input folder:";
+            // 
+            // labelOutputDir
+            // 
+            this.labelOutputDir.AutoSize = true;
+            this.labelOutputDir.Location = new System.Drawing.Point(12, 91);
+            this.labelOutputDir.Name = "labelOutputDir";
+            this.labelOutputDir.Size = new System.Drawing.Size(71, 13);
+            this.labelOutputDir.TabIndex = 9;
+            this.labelOutputDir.Text = "Output folder:";
             // 
             // MainGui
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(696, 382);
-            this.Controls.Add(this.tableLayoutPanelListOfVideos);
+            this.Controls.Add(this.labelOutputDir);
+            this.Controls.Add(this.labelFolderIn);
+            this.Controls.Add(this.buttonRun);
+            this.Controls.Add(this.dataGridViewFilms);
             this.Controls.Add(this.buttonFolderOut);
             this.Controls.Add(this.buttonOpenFolderIn);
             this.Controls.Add(this.textBoxFolderOut);
@@ -149,6 +225,7 @@
             this.Text = "MainGui";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFilms)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -160,12 +237,22 @@
         private System.Windows.Forms.TextBox textBoxFolderOut;
         private System.Windows.Forms.Button buttonOpenFolderIn;
         private System.Windows.Forms.Button buttonFolderOut;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanelListOfVideos;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem openInToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem openOutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        private System.Windows.Forms.DataGridView dataGridViewFilms;
+        private System.Windows.Forms.Button buttonRun;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn convertVideo;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn joinBefore;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fileName;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn finalName;
+        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+        private System.Windows.Forms.Label labelFolderIn;
+        private System.Windows.Forms.Label labelOutputDir;
+        private System.Windows.Forms.FolderBrowserDialog folderBrowserDialogIn;
+        private System.Windows.Forms.FolderBrowserDialog folderBrowserDialogOut;
     }
 }
