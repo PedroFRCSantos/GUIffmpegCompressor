@@ -40,15 +40,16 @@
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataGridViewFilms = new System.Windows.Forms.DataGridView();
-            this.convertVideo = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.joinBefore = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.fileName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.finalName = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.buttonRun = new System.Windows.Forms.Button();
             this.labelFolderIn = new System.Windows.Forms.Label();
             this.labelOutputDir = new System.Windows.Forms.Label();
             this.folderBrowserDialogIn = new System.Windows.Forms.FolderBrowserDialog();
             this.folderBrowserDialogOut = new System.Windows.Forms.FolderBrowserDialog();
+            this.finalName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fileName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.joinBefore = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.convertVideo = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.progressBarWork = new System.Windows.Forms.ProgressBar();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFilms)).BeginInit();
             this.SuspendLayout();
@@ -59,6 +60,7 @@
             this.textBoxFolderIn.Name = "textBoxFolderIn";
             this.textBoxFolderIn.Size = new System.Drawing.Size(591, 20);
             this.textBoxFolderIn.TabIndex = 0;
+            this.textBoxFolderIn.TextChanged += new System.EventHandler(this.textBoxFolderInTextChanged);
             // 
             // textBoxFolderOut
             // 
@@ -66,6 +68,7 @@
             this.textBoxFolderOut.Name = "textBoxFolderOut";
             this.textBoxFolderOut.Size = new System.Drawing.Size(591, 20);
             this.textBoxFolderOut.TabIndex = 1;
+            this.textBoxFolderOut.TextChanged += new System.EventHandler(this.textBoxFolderOutTextChanged);
             // 
             // buttonOpenFolderIn
             // 
@@ -156,31 +159,9 @@
             this.dataGridViewFilms.Size = new System.Drawing.Size(672, 168);
             this.dataGridViewFilms.TabIndex = 6;
             // 
-            // convertVideo
-            // 
-            this.convertVideo.HeaderText = "Convert Video";
-            this.convertVideo.Name = "convertVideo";
-            // 
-            // joinBefore
-            // 
-            this.joinBefore.FillWeight = 150F;
-            this.joinBefore.HeaderText = "Join to Video Before:";
-            this.joinBefore.Name = "joinBefore";
-            // 
-            // fileName
-            // 
-            this.fileName.HeaderText = "Name:";
-            this.fileName.Name = "fileName";
-            this.fileName.ReadOnly = true;
-            // 
-            // finalName
-            // 
-            this.finalName.HeaderText = "Final Name:";
-            this.finalName.Name = "finalName";
-            // 
             // buttonRun
             // 
-            this.buttonRun.Location = new System.Drawing.Point(294, 332);
+            this.buttonRun.Location = new System.Drawing.Point(293, 382);
             this.buttonRun.Name = "buttonRun";
             this.buttonRun.Size = new System.Drawing.Size(102, 38);
             this.buttonRun.TabIndex = 7;
@@ -206,11 +187,43 @@
             this.labelOutputDir.TabIndex = 9;
             this.labelOutputDir.Text = "Output folder:";
             // 
+            // finalName
+            // 
+            this.finalName.HeaderText = "Final Name:";
+            this.finalName.Name = "finalName";
+            this.finalName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.finalName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // fileName
+            // 
+            this.fileName.HeaderText = "Name:";
+            this.fileName.Name = "fileName";
+            this.fileName.ReadOnly = true;
+            // 
+            // joinBefore
+            // 
+            this.joinBefore.HeaderText = "Join to Video Before:";
+            this.joinBefore.Name = "joinBefore";
+            // 
+            // convertVideo
+            // 
+            this.convertVideo.FillWeight = 70F;
+            this.convertVideo.HeaderText = "Convert Video:";
+            this.convertVideo.Name = "convertVideo";
+            // 
+            // progressBarWork
+            // 
+            this.progressBarWork.Location = new System.Drawing.Point(12, 346);
+            this.progressBarWork.Name = "progressBarWork";
+            this.progressBarWork.Size = new System.Drawing.Size(672, 23);
+            this.progressBarWork.TabIndex = 10;
+            // 
             // MainGui
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(696, 382);
+            this.ClientSize = new System.Drawing.Size(696, 432);
+            this.Controls.Add(this.progressBarWork);
             this.Controls.Add(this.labelOutputDir);
             this.Controls.Add(this.labelFolderIn);
             this.Controls.Add(this.buttonRun);
@@ -245,14 +258,15 @@
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.DataGridView dataGridViewFilms;
         private System.Windows.Forms.Button buttonRun;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn convertVideo;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn joinBefore;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fileName;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn finalName;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.Label labelFolderIn;
         private System.Windows.Forms.Label labelOutputDir;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialogIn;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialogOut;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn convertVideo;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn joinBefore;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fileName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn finalName;
+        private System.Windows.Forms.ProgressBar progressBarWork;
     }
 }

@@ -1,2 +1,2 @@
 # GUIffmpegCompressor
-Re Encoding videos to try to same memory.
+Re Encoding videos to try to save memory.
