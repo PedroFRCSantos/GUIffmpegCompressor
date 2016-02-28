@@ -143,9 +143,16 @@ namespace GUIffmpeg
                         else
                             outputName = textBoxFolderOut.Text + "\\" + fileName;
 
-                        Thread.Sleep(1000);
+                        System.Diagnostics.Process process = new System.Diagnostics.Process();
+                        System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
+                        startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
+                        startInfo.FileName = "ffmpeg.exe";
+                        startInfo.Arguments = "-i " + filesAll[i] + " -qscale 0 " + outputName;
+                        process.StartInfo = startInfo;
+                        process.Start();
+                        process.WaitForExit();
 
-                        backgroundWorkerConverter.ReportProgress((int)(i / ((float)rowCount) * 100.0f));
+                        backgroundWorkerConverter.ReportProgress((int)((i + 1) / ((float)rowCount) * 100.0f));
                     }
                 }
             }

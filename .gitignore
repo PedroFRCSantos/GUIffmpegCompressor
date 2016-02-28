@@ -1,3 +1,6 @@
 /.vs
 /GUIffmpegCompressor/bin
 /GUIffmpegCompressor/obj
+/ffmpeg.exe
+/tmpIn
+/tmpout
