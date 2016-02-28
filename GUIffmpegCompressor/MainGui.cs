@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.IO;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace GUIffmpeg
@@ -10,16 +11,23 @@ namespace GUIffmpeg
         public MainGui()
         {
             InitializeComponent();
-
-            /*dataGridViewFilms.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridViewFilms.CurrentCell = dataGridViewFilms.Rows[0].Cells[0];*/
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button1Run(object sender, EventArgs e)
         {
-            DataGridViewCheckBoxCell chk = (DataGridViewCheckBoxCell)dataGridViewFilms.Rows[0].Cells[0];
-            if ((bool)chk.EditedFormattedValue == true)
-                Console.WriteLine("Check");
+            buttonRun.Enabled = false;
+            dataGridViewFilms.Enabled = false;
+            buttonOpenFolderIn.Enabled = false;
+            buttonFolderOut.Enabled = false;
+            textBoxFolderIn.Enabled = false;
+            textBoxFolderOut.Enabled = false;
+
+            progressBarWork.Maximum = 100;
+            progressBarWork.Value = 0;
+
+            backgroundWorkerConverter.ProgressChanged += backgroundWorkerConverterProgressChanged;
+
+            backgroundWorkerConverter.RunWorkerAsync();
         }
 
         private void updateFilesOfInputFolder()
@@ -30,7 +38,7 @@ namespace GUIffmpeg
                 dataGridViewFilms.Rows.RemoveAt(0);
 
             // verify if folder exits and try fround all movies inside
-            if (Directory.Exists(textBoxFolderIn.Text))
+            if (Directory.Exists(textBoxFolderIn.Text) && textBoxFolderIn.Text != "")
             {
                 textBoxFolderIn.BackColor = Color.Green;
 
@@ -87,7 +95,11 @@ namespace GUIffmpeg
         {
             folderBrowserDialogOut = new FolderBrowserDialog();
             if (folderBrowserDialogOut.ShowDialog() == DialogResult.OK)
+            {
                 textBoxFolderOut.Text = folderBrowserDialogOut.SelectedPath;
+
+                updateOutputFolder();
+            }
         }
 
         private void textBoxFolderInTextChanged(object sender, EventArgs e)
@@ -98,6 +110,61 @@ namespace GUIffmpeg
         private void textBoxFolderOutTextChanged(object sender, EventArgs e)
         {
             updateOutputFolder();
+        }
+
+        private void backgroundWorkerConverterDoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
+        {
+            if (Directory.Exists(textBoxFolderOut.Text) && textBoxFolderOut.Text != "" &&
+                Directory.Exists(textBoxFolderIn.Text) && textBoxFolderIn.Text != "")
+            {
+                int rowCount = dataGridViewFilms.Rows.Count;
+
+                // find all movies files
+                string[] filesMP4 = Directory.GetFiles(textBoxFolderIn.Text, "*.mp4");
+                string[] filesAVI = Directory.GetFiles(textBoxFolderIn.Text, "*.avi");
+
+                string[] filesAll = new string[filesMP4.Length + filesAVI.Length];
+                filesMP4.CopyTo(filesAll, 0);
+                filesAVI.CopyTo(filesAll, filesMP4.Length);
+
+                // verify if it is to convert
+                for (int i = 0; i < rowCount; i++)
+                {
+                    DataGridViewCheckBoxCell chk = (DataGridViewCheckBoxCell)dataGridViewFilms.Rows[0].Cells[0];
+                    if ((bool)chk.EditedFormattedValue == true)
+                    {
+                        string fileName = (string)dataGridViewFilms.Rows[i].Cells[3].Value;
+
+                        string outputName;
+
+                        if (textBoxFolderOut.Text[textBoxFolderOut.Text.Length - 1] == '\\' ||
+                            textBoxFolderOut.Text[textBoxFolderOut.Text.Length - 1] == '/')
+                            outputName = textBoxFolderOut.Text + fileName;
+                        else
+                            outputName = textBoxFolderOut.Text + "\\" + fileName;
+
+                        Thread.Sleep(1000);
+
+                        backgroundWorkerConverter.ReportProgress((int)(i / ((float)rowCount) * 100.0f));
+                    }
+                }
+            }
+        }
+
+        private void backgroundWorkerConverterRunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
+        {
+            buttonRun.Enabled = true;
+            dataGridViewFilms.Enabled = true;
+            buttonOpenFolderIn.Enabled = true;
+            buttonFolderOut.Enabled = true;
+            textBoxFolderIn.Enabled = true;
+            textBoxFolderOut.Enabled = true;
+        }
+
+        private void backgroundWorkerConverterProgressChanged(object sender, System.ComponentModel.ProgressChangedEventArgs e)
+        {
+            Console.WriteLine("Aqui {0}!!!", e.ProgressPercentage);
+            progressBarWork.Value = e.ProgressPercentage;
         }
     }
 }

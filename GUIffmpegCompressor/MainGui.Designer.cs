@@ -40,16 +40,17 @@
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataGridViewFilms = new System.Windows.Forms.DataGridView();
+            this.convertVideo = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.joinBefore = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.fileName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.finalName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buttonRun = new System.Windows.Forms.Button();
             this.labelFolderIn = new System.Windows.Forms.Label();
             this.labelOutputDir = new System.Windows.Forms.Label();
             this.folderBrowserDialogIn = new System.Windows.Forms.FolderBrowserDialog();
             this.folderBrowserDialogOut = new System.Windows.Forms.FolderBrowserDialog();
-            this.finalName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fileName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.joinBefore = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.convertVideo = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.progressBarWork = new System.Windows.Forms.ProgressBar();
+            this.backgroundWorkerConverter = new System.ComponentModel.BackgroundWorker();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFilms)).BeginInit();
             this.SuspendLayout();
@@ -159,6 +160,30 @@
             this.dataGridViewFilms.Size = new System.Drawing.Size(672, 168);
             this.dataGridViewFilms.TabIndex = 6;
             // 
+            // convertVideo
+            // 
+            this.convertVideo.FillWeight = 70F;
+            this.convertVideo.HeaderText = "Convert Video:";
+            this.convertVideo.Name = "convertVideo";
+            // 
+            // joinBefore
+            // 
+            this.joinBefore.HeaderText = "Join to Video Before:";
+            this.joinBefore.Name = "joinBefore";
+            // 
+            // fileName
+            // 
+            this.fileName.HeaderText = "Name:";
+            this.fileName.Name = "fileName";
+            this.fileName.ReadOnly = true;
+            // 
+            // finalName
+            // 
+            this.finalName.HeaderText = "Final Name:";
+            this.finalName.Name = "finalName";
+            this.finalName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.finalName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
             // buttonRun
             // 
             this.buttonRun.Location = new System.Drawing.Point(293, 382);
@@ -167,7 +192,7 @@
             this.buttonRun.TabIndex = 7;
             this.buttonRun.Text = "Convert";
             this.buttonRun.UseVisualStyleBackColor = true;
-            this.buttonRun.Click += new System.EventHandler(this.button1_Click);
+            this.buttonRun.Click += new System.EventHandler(this.button1Run);
             // 
             // labelFolderIn
             // 
@@ -187,36 +212,19 @@
             this.labelOutputDir.TabIndex = 9;
             this.labelOutputDir.Text = "Output folder:";
             // 
-            // finalName
-            // 
-            this.finalName.HeaderText = "Final Name:";
-            this.finalName.Name = "finalName";
-            this.finalName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.finalName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // fileName
-            // 
-            this.fileName.HeaderText = "Name:";
-            this.fileName.Name = "fileName";
-            this.fileName.ReadOnly = true;
-            // 
-            // joinBefore
-            // 
-            this.joinBefore.HeaderText = "Join to Video Before:";
-            this.joinBefore.Name = "joinBefore";
-            // 
-            // convertVideo
-            // 
-            this.convertVideo.FillWeight = 70F;
-            this.convertVideo.HeaderText = "Convert Video:";
-            this.convertVideo.Name = "convertVideo";
-            // 
             // progressBarWork
             // 
             this.progressBarWork.Location = new System.Drawing.Point(12, 346);
             this.progressBarWork.Name = "progressBarWork";
             this.progressBarWork.Size = new System.Drawing.Size(672, 23);
             this.progressBarWork.TabIndex = 10;
+            // 
+            // backgroundWorkerConverter
+            // 
+            this.backgroundWorkerConverter.WorkerReportsProgress = true;
+            this.backgroundWorkerConverter.WorkerSupportsCancellation = true;
+            this.backgroundWorkerConverter.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorkerConverterDoWork);
+            this.backgroundWorkerConverter.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorkerConverterRunWorkerCompleted);
             // 
             // MainGui
             // 
@@ -268,5 +276,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn fileName;
         private System.Windows.Forms.DataGridViewTextBoxColumn finalName;
         private System.Windows.Forms.ProgressBar progressBarWork;
+        private System.ComponentModel.BackgroundWorker backgroundWorkerConverter;
     }
 }
