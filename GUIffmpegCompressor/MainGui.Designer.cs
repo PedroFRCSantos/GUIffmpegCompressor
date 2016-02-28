@@ -32,7 +32,7 @@
             this.textBoxFolderOut = new System.Windows.Forms.TextBox();
             this.buttonOpenFolderIn = new System.Windows.Forms.Button();
             this.buttonFolderOut = new System.Windows.Forms.Button();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.menuStripMain = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openInToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -51,7 +51,7 @@
             this.folderBrowserDialogOut = new System.Windows.Forms.FolderBrowserDialog();
             this.progressBarWork = new System.Windows.Forms.ProgressBar();
             this.backgroundWorkerConverter = new System.ComponentModel.BackgroundWorker();
-            this.menuStrip1.SuspendLayout();
+            this.menuStripMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFilms)).BeginInit();
             this.SuspendLayout();
             // 
@@ -91,16 +91,16 @@
             this.buttonFolderOut.UseVisualStyleBackColor = true;
             this.buttonFolderOut.Click += new System.EventHandler(this.buttonFolderOutClick);
             // 
-            // menuStrip1
+            // menuStripMain
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuStripMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.helpToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(696, 24);
-            this.menuStrip1.TabIndex = 5;
-            this.menuStrip1.Text = "menuStrip1";
+            this.menuStripMain.Location = new System.Drawing.Point(0, 0);
+            this.menuStripMain.Name = "menuStripMain";
+            this.menuStripMain.Size = new System.Drawing.Size(696, 24);
+            this.menuStripMain.TabIndex = 5;
+            this.menuStripMain.Text = "menuStrip1";
             // 
             // fileToolStripMenuItem
             // 
@@ -115,20 +115,23 @@
             // openInToolStripMenuItem
             // 
             this.openInToolStripMenuItem.Name = "openInToolStripMenuItem";
-            this.openInToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.openInToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.openInToolStripMenuItem.Text = "Open In";
+            this.openInToolStripMenuItem.Click += new System.EventHandler(this.openInToolStripMenuItemClick);
             // 
             // openOutToolStripMenuItem
             // 
             this.openOutToolStripMenuItem.Name = "openOutToolStripMenuItem";
-            this.openOutToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.openOutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.openOutToolStripMenuItem.Text = "Open Out";
+            this.openOutToolStripMenuItem.Click += new System.EventHandler(this.openOutToolStripMenuItemClick);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItemClick);
             // 
             // helpToolStripMenuItem
             // 
@@ -143,6 +146,7 @@
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.aboutToolStripMenuItem.Text = "About";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItemClick);
             // 
             // dataGridViewFilms
             // 
@@ -240,12 +244,12 @@
             this.Controls.Add(this.buttonOpenFolderIn);
             this.Controls.Add(this.textBoxFolderOut);
             this.Controls.Add(this.textBoxFolderIn);
-            this.Controls.Add(this.menuStrip1);
-            this.MainMenuStrip = this.menuStrip1;
+            this.Controls.Add(this.menuStripMain);
+            this.MainMenuStrip = this.menuStripMain;
             this.Name = "MainGui";
             this.Text = "MainGui";
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.menuStripMain.ResumeLayout(false);
+            this.menuStripMain.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFilms)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -258,7 +262,7 @@
         private System.Windows.Forms.TextBox textBoxFolderOut;
         private System.Windows.Forms.Button buttonOpenFolderIn;
         private System.Windows.Forms.Button buttonFolderOut;
-        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.MenuStrip menuStripMain;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem openInToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem openOutToolStripMenuItem;
