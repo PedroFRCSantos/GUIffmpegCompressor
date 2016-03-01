@@ -187,7 +187,7 @@ namespace GUIffmpeg
                                 // remove temporary file
                                 //
 
-                                i = k;
+                                i = k - 1;
                             }
                         }
 
