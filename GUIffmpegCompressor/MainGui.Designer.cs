@@ -34,7 +34,7 @@
             this.buttonFolderOut = new System.Windows.Forms.Button();
             this.menuStripMain = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.openInToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openInToolStripOpenIn = new System.Windows.Forms.ToolStripMenuItem();
             this.openOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -105,19 +105,19 @@
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.openInToolStripMenuItem,
+            this.openInToolStripOpenIn,
             this.openOutToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
             // 
-            // openInToolStripMenuItem
+            // openInToolStripOpenIn
             // 
-            this.openInToolStripMenuItem.Name = "openInToolStripMenuItem";
-            this.openInToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.openInToolStripMenuItem.Text = "Open In";
-            this.openInToolStripMenuItem.Click += new System.EventHandler(this.openInToolStripMenuItemClick);
+            this.openInToolStripOpenIn.Name = "openInToolStripOpenIn";
+            this.openInToolStripOpenIn.Size = new System.Drawing.Size(152, 22);
+            this.openInToolStripOpenIn.Text = "Open In";
+            this.openInToolStripOpenIn.Click += new System.EventHandler(this.openInToolStripMenuItemClick);
             // 
             // openOutToolStripMenuItem
             // 
@@ -264,7 +264,7 @@
         private System.Windows.Forms.Button buttonFolderOut;
         private System.Windows.Forms.MenuStrip menuStripMain;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem openInToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem openInToolStripOpenIn;
         private System.Windows.Forms.ToolStripMenuItem openOutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;

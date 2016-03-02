@@ -48,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="LanguageManager.cs" />
     <Compile Include="MainGui.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -67,7 +68,9 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>xcopy /D /Y "$(SolutionDir)ffmpeg.exe" "$(TargetDir)"</PostBuildEvent>
+    <PostBuildEvent>xcopy /D /Y "$(SolutionDir)ffmpeg.exe" "$(TargetDir)"
+if not exist "$(TargetDir)Languages" mkdir "$(TargetDir)Languages"
+xcopy /D /Y "$(SolutionDir)Languages" "$(TargetDir)Languages"</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

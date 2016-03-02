@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="ISO-8859-9"?>
+<xml>
+	<authors>
+		<author>
+			<name>Pedro Santos</name>
+			<mail>pedro-santos@hotmail.com</mail>
+		</author>
+	</authors>
+
+	<mainGUI>
+		<folder>
+			<folderIn>Pasta de entrada:</folderIn>
+			<folderOut>Pasta de saída:</folderOut>
+			
+			<browse>Encontrar</browse>
+		</folder>
+	</mainGUI>
+	
+</xml>

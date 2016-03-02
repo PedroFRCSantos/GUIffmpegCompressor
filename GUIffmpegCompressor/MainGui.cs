@@ -1,16 +1,25 @@
 ﻿using System;
 using System.Drawing;
 using System.IO;
-using System.Threading;
 using System.Windows.Forms;
 
 namespace GUIffmpeg
 {
     public partial class MainGui : Form
     {
+        private LanguageManager languageManager = new LanguageManager();
+
         public MainGui()
         {
             InitializeComponent();
+
+            // try to change gui acording to windows language
+            labelFolderIn.Text = languageManager.getNameFolderIn();
+            labelOutputDir.Text = languageManager.getNameFolderOut();
+            buttonOpenFolderIn.Text = languageManager.getBrowse();
+            buttonFolderOut.Text = languageManager.getBrowse();
+
+            //openInToolStripOpenIn.Text = "asdjdf";
         }
 
         private void button1Run(object sender, EventArgs e)
