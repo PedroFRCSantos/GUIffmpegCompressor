@@ -255,5 +255,60 @@ namespace GUIffmpeg
         {
             this.Close();
         }
+
+        private void comboBox1SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBoxBaseNameTextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBoxName1CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBoxName2CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBoxName3CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonUp1Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonDown1Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonUp2Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonDown2Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonUp3Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonDown3Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
