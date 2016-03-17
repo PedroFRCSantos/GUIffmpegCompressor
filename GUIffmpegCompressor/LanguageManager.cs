@@ -15,6 +15,16 @@ namespace GUIffmpeg
         string folderOutStr;
         string browseStr;
 
+        string upButtonName;
+        string downButtonName;
+
+        string dateFormat1;
+        string dateFormat2;
+        string dateFormat3;
+
+        string baseName;
+        string useName;
+
         public LanguageManager()
         {
             CultureInfo ci = CultureInfo.InstalledUICulture;
@@ -25,23 +35,70 @@ namespace GUIffmpeg
             folderOutStr = "Output folder:";
             browseStr = "Browse";
 
+            // up and down buttons
+            upButtonName = "up";
+            downButtonName = "down";
+
+            // load default dateFormat
+            dateFormat1 = "DDMMYYYYHHMMSS";
+            dateFormat2 = "YYYYMMDDHHMMSS";
+            dateFormat3 = "DDMouthYYYYHHMMSS";
+
+            baseName = "Base Name (empty)";
+            useName = "User Name";
+
             // try to open xml and read information
             readXMLInformation();
         }
 
         public string getNameFolderIn()
         {
-            return folderInStr;
+            return (string)folderInStr.Clone();
         }
 
         public string getNameFolderOut()
         {
-            return folderOutStr;
+            return (string)folderOutStr.Clone();
         }
 
         public string getBrowse()
         {
-            return browseStr;
+            return (string)browseStr.Clone();
+        }
+
+        public string getUpName()
+        {
+            return (string)upButtonName.Clone();
+        }
+
+        public string getDownName()
+        {
+            return (string)downButtonName.Clone();
+        }
+
+        public string getDateFormat1()
+        {
+            return (string)dateFormat1.Clone();
+        }
+
+        public string getDateFormat2()
+        {
+            return (string)dateFormat2.Clone();
+        }
+
+        public string getDateFormat3()
+        {
+            return (string)dateFormat3.Clone();
+        }
+
+        public string getBaseName()
+        {
+            return (string)baseName.Clone();
+        }
+
+        public string getUseName()
+        {
+            return (string)useName.Clone();
         }
 
         private void readXMLInformation()

@@ -7,11 +7,31 @@ namespace GUIffmpeg
 {
     public partial class MainGui : Form
     {
+        private enum FileNameParts { Date, BaseName, UserName };
+
+        private FileNameParts[] fileNameParts;
+
         private LanguageManager languageManager = new LanguageManager();
 
         public MainGui()
         {
             InitializeComponent();
+
+            // Order of output file names
+            buttonUp1.Text = languageManager.getUpName();
+            buttonUp2.Text = languageManager.getUpName();
+            buttonUp3.Text = languageManager.getUpName();
+
+            buttonDown1.Text = languageManager.getDownName();
+            buttonDown2.Text = languageManager.getDownName();
+            buttonDown3.Text = languageManager.getDownName();
+
+            fileNameParts = new FileNameParts[3];
+            fileNameParts[0] = FileNameParts.BaseName;
+            fileNameParts[1] = FileNameParts.UserName;
+            fileNameParts[2] = FileNameParts.Date;
+
+            updateOrderOfName();
 
             // try to change gui acording to windows language
             labelFolderIn.Text = languageManager.getNameFolderIn();
@@ -20,6 +40,13 @@ namespace GUIffmpeg
             buttonFolderOut.Text = languageManager.getBrowse();
 
             //openInToolStripOpenIn.Text = "asdjdf";
+
+            // list o date format
+            comboBoxDataFormat.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxDataFormat.Items.Add(languageManager.getDateFormat1());
+            comboBoxDataFormat.Items.Add(languageManager.getDateFormat2());
+            comboBoxDataFormat.Items.Add(languageManager.getDateFormat3());
+            comboBoxDataFormat.SelectedIndex = 0;
         }
 
         private void button1Run(object sender, EventArgs e)
@@ -80,6 +107,65 @@ namespace GUIffmpeg
             }
             else
                 textBoxFolderIn.BackColor = Color.White;
+        }
+
+        private void updateOrderOfName()
+        {
+            // fill first option
+            switch (fileNameParts[0])
+            {
+                case FileNameParts.BaseName:
+                    if (textBoxBaseName.Text.Length == 0)
+                        checkBoxName1.Text = languageManager.getBaseName();
+                    else
+                        checkBoxName1.Text = textBoxBaseName.Text;
+                    break;
+                case FileNameParts.Date:
+                    checkBoxName1.Text = getCurrentDateString();
+                    break;
+                case FileNameParts.UserName:
+                    checkBoxName1.Text = languageManager.getUseName();
+                    break;
+            }
+
+            switch (fileNameParts[1])
+            {
+                case FileNameParts.BaseName:
+                    if (textBoxBaseName.Text.Length == 0)
+                        checkBoxName2.Text = languageManager.getBaseName();
+                    else
+                        checkBoxName2.Text = textBoxBaseName.Text;
+                    break;
+                case FileNameParts.Date:
+                    checkBoxName2.Text = getCurrentDateString();
+                    break;
+                case FileNameParts.UserName:
+                    checkBoxName2.Text = languageManager.getUseName();
+                    break;
+            }
+
+            switch (fileNameParts[2])
+            {
+                case FileNameParts.BaseName:
+                    if (textBoxBaseName.Text.Length == 0)
+                        checkBoxName3.Text = languageManager.getBaseName();
+                    else
+                        checkBoxName3.Text = textBoxBaseName.Text;
+                    break;
+                case FileNameParts.Date:
+                    checkBoxName3.Text = getCurrentDateString();
+                    break;
+                case FileNameParts.UserName:
+                    checkBoxName3.Text = languageManager.getUseName();
+                    break;
+            }
+        }
+
+        private string getCurrentDateString()
+        {
+            DateTime dateNow = DateTime.Now;
+
+            return "101120162130";
         }
 
         private void updateOutputFolder()
@@ -256,14 +342,14 @@ namespace GUIffmpeg
             this.Close();
         }
 
-        private void comboBox1SelectedIndexChanged(object sender, EventArgs e)
+        private void comboBoxDateFormatSelectedIndexChanged(object sender, EventArgs e)
         {
-
+            updateOrderOfName();
         }
 
         private void textBoxBaseNameTextChanged(object sender, EventArgs e)
         {
-
+            updateOrderOfName();
         }
 
         private void checkBoxName1CheckedChanged(object sender, EventArgs e)
@@ -283,32 +369,50 @@ namespace GUIffmpeg
 
         private void buttonUp1Click(object sender, EventArgs e)
         {
+            FileNameParts tmp = fileNameParts[0];
+            fileNameParts[0] = fileNameParts[1];
+            fileNameParts[1] = fileNameParts[2];
+            fileNameParts[2] = tmp;
 
+            updateOrderOfName();
         }
 
         private void buttonDown1Click(object sender, EventArgs e)
         {
+            FileNameParts tmp = fileNameParts[0];
+            fileNameParts[0] = fileNameParts[1];
+            fileNameParts[1] = tmp;
 
+            updateOrderOfName();
         }
 
         private void buttonUp2Click(object sender, EventArgs e)
         {
-
+            buttonDown1Click(null, null);
         }
 
         private void buttonDown2Click(object sender, EventArgs e)
         {
+            FileNameParts tmp = fileNameParts[1];
+            fileNameParts[1] = fileNameParts[2];
+            fileNameParts[2] = tmp;
 
+            updateOrderOfName();
         }
 
         private void buttonUp3Click(object sender, EventArgs e)
         {
-
+            buttonDown2Click(null, null);
         }
 
         private void buttonDown3Click(object sender, EventArgs e)
         {
+            FileNameParts tmp = fileNameParts[2];
+            fileNameParts[2] = fileNameParts[1];
+            fileNameParts[1] = fileNameParts[0];
+            fileNameParts[0] = tmp;
 
+            updateOrderOfName();
         }
     }
 }

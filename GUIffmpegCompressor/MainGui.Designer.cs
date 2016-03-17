@@ -57,7 +57,7 @@
             this.checkBoxName1 = new System.Windows.Forms.CheckBox();
             this.buttonUp1 = new System.Windows.Forms.Button();
             this.textBoxBaseName = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBoxDataFormat = new System.Windows.Forms.ComboBox();
             this.buttonDown1 = new System.Windows.Forms.Button();
             this.labelSecond = new System.Windows.Forms.Label();
             this.checkBoxName2 = new System.Windows.Forms.CheckBox();
@@ -249,7 +249,7 @@
             // labelDateFormat
             // 
             this.labelDateFormat.AutoSize = true;
-            this.labelDateFormat.Location = new System.Drawing.Point(28, 376);
+            this.labelDateFormat.Location = new System.Drawing.Point(12, 377);
             this.labelDateFormat.Name = "labelDateFormat";
             this.labelDateFormat.Size = new System.Drawing.Size(68, 13);
             this.labelDateFormat.TabIndex = 11;
@@ -258,7 +258,7 @@
             // labelBaseName
             // 
             this.labelBaseName.AutoSize = true;
-            this.labelBaseName.Location = new System.Drawing.Point(28, 405);
+            this.labelBaseName.Location = new System.Drawing.Point(12, 405);
             this.labelBaseName.Name = "labelBaseName";
             this.labelBaseName.Size = new System.Drawing.Size(65, 13);
             this.labelBaseName.TabIndex = 12;
@@ -267,7 +267,7 @@
             // labelFirst
             // 
             this.labelFirst.AutoSize = true;
-            this.labelFirst.Location = new System.Drawing.Point(286, 376);
+            this.labelFirst.Location = new System.Drawing.Point(386, 375);
             this.labelFirst.Name = "labelFirst";
             this.labelFirst.Size = new System.Drawing.Size(13, 13);
             this.labelFirst.TabIndex = 13;
@@ -276,7 +276,7 @@
             // checkBoxName1
             // 
             this.checkBoxName1.AutoSize = true;
-            this.checkBoxName1.Location = new System.Drawing.Point(308, 376);
+            this.checkBoxName1.Location = new System.Drawing.Point(408, 375);
             this.checkBoxName1.Name = "checkBoxName1";
             this.checkBoxName1.Size = new System.Drawing.Size(60, 17);
             this.checkBoxName1.TabIndex = 14;
@@ -286,7 +286,7 @@
             // 
             // buttonUp1
             // 
-            this.buttonUp1.Location = new System.Drawing.Point(418, 376);
+            this.buttonUp1.Location = new System.Drawing.Point(273, 375);
             this.buttonUp1.Name = "buttonUp1";
             this.buttonUp1.Size = new System.Drawing.Size(48, 23);
             this.buttonUp1.TabIndex = 15;
@@ -296,24 +296,24 @@
             // 
             // textBoxBaseName
             // 
-            this.textBoxBaseName.Location = new System.Drawing.Point(99, 402);
+            this.textBoxBaseName.Location = new System.Drawing.Point(86, 402);
             this.textBoxBaseName.Name = "textBoxBaseName";
-            this.textBoxBaseName.Size = new System.Drawing.Size(136, 20);
+            this.textBoxBaseName.Size = new System.Drawing.Size(181, 20);
             this.textBoxBaseName.TabIndex = 16;
             this.textBoxBaseName.TextChanged += new System.EventHandler(this.textBoxBaseNameTextChanged);
             // 
-            // comboBox1
+            // comboBoxDataFormat
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(99, 372);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 17;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1SelectedIndexChanged);
+            this.comboBoxDataFormat.FormattingEnabled = true;
+            this.comboBoxDataFormat.Location = new System.Drawing.Point(86, 373);
+            this.comboBoxDataFormat.Name = "comboBoxDataFormat";
+            this.comboBoxDataFormat.Size = new System.Drawing.Size(181, 21);
+            this.comboBoxDataFormat.TabIndex = 17;
+            this.comboBoxDataFormat.SelectedIndexChanged += new System.EventHandler(this.comboBoxDateFormatSelectedIndexChanged);
             // 
             // buttonDown1
             // 
-            this.buttonDown1.Location = new System.Drawing.Point(473, 375);
+            this.buttonDown1.Location = new System.Drawing.Point(328, 374);
             this.buttonDown1.Name = "buttonDown1";
             this.buttonDown1.Size = new System.Drawing.Size(46, 23);
             this.buttonDown1.TabIndex = 18;
@@ -324,7 +324,7 @@
             // labelSecond
             // 
             this.labelSecond.AutoSize = true;
-            this.labelSecond.Location = new System.Drawing.Point(286, 408);
+            this.labelSecond.Location = new System.Drawing.Point(386, 407);
             this.labelSecond.Name = "labelSecond";
             this.labelSecond.Size = new System.Drawing.Size(13, 13);
             this.labelSecond.TabIndex = 19;
@@ -333,7 +333,7 @@
             // checkBoxName2
             // 
             this.checkBoxName2.AutoSize = true;
-            this.checkBoxName2.Location = new System.Drawing.Point(308, 408);
+            this.checkBoxName2.Location = new System.Drawing.Point(408, 407);
             this.checkBoxName2.Name = "checkBoxName2";
             this.checkBoxName2.Size = new System.Drawing.Size(60, 17);
             this.checkBoxName2.TabIndex = 20;
@@ -343,7 +343,7 @@
             // 
             // buttonDown2
             // 
-            this.buttonDown2.Location = new System.Drawing.Point(473, 404);
+            this.buttonDown2.Location = new System.Drawing.Point(328, 403);
             this.buttonDown2.Name = "buttonDown2";
             this.buttonDown2.Size = new System.Drawing.Size(46, 23);
             this.buttonDown2.TabIndex = 22;
@@ -353,7 +353,7 @@
             // 
             // buttonUp2
             // 
-            this.buttonUp2.Location = new System.Drawing.Point(418, 405);
+            this.buttonUp2.Location = new System.Drawing.Point(273, 404);
             this.buttonUp2.Name = "buttonUp2";
             this.buttonUp2.Size = new System.Drawing.Size(48, 23);
             this.buttonUp2.TabIndex = 21;
@@ -363,7 +363,7 @@
             // 
             // buttonDown3
             // 
-            this.buttonDown3.Location = new System.Drawing.Point(473, 433);
+            this.buttonDown3.Location = new System.Drawing.Point(328, 432);
             this.buttonDown3.Name = "buttonDown3";
             this.buttonDown3.Size = new System.Drawing.Size(46, 23);
             this.buttonDown3.TabIndex = 26;
@@ -373,7 +373,7 @@
             // 
             // buttonUp3
             // 
-            this.buttonUp3.Location = new System.Drawing.Point(418, 434);
+            this.buttonUp3.Location = new System.Drawing.Point(273, 433);
             this.buttonUp3.Name = "buttonUp3";
             this.buttonUp3.Size = new System.Drawing.Size(48, 23);
             this.buttonUp3.TabIndex = 25;
@@ -384,7 +384,7 @@
             // checkBoxName3
             // 
             this.checkBoxName3.AutoSize = true;
-            this.checkBoxName3.Location = new System.Drawing.Point(308, 437);
+            this.checkBoxName3.Location = new System.Drawing.Point(408, 436);
             this.checkBoxName3.Name = "checkBoxName3";
             this.checkBoxName3.Size = new System.Drawing.Size(60, 17);
             this.checkBoxName3.TabIndex = 24;
@@ -395,11 +395,11 @@
             // labelThird
             // 
             this.labelThird.AutoSize = true;
-            this.labelThird.Location = new System.Drawing.Point(286, 437);
+            this.labelThird.Location = new System.Drawing.Point(386, 436);
             this.labelThird.Name = "labelThird";
             this.labelThird.Size = new System.Drawing.Size(13, 13);
             this.labelThird.TabIndex = 23;
-            this.labelThird.Text = "2";
+            this.labelThird.Text = "3";
             // 
             // MainGui
             // 
@@ -415,7 +415,7 @@
             this.Controls.Add(this.checkBoxName2);
             this.Controls.Add(this.labelSecond);
             this.Controls.Add(this.buttonDown1);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.comboBoxDataFormat);
             this.Controls.Add(this.textBoxBaseName);
             this.Controls.Add(this.buttonUp1);
             this.Controls.Add(this.checkBoxName1);
@@ -474,7 +474,7 @@
         private System.Windows.Forms.CheckBox checkBoxName1;
         private System.Windows.Forms.Button buttonUp1;
         private System.Windows.Forms.TextBox textBoxBaseName;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBoxDataFormat;
         private System.Windows.Forms.Button buttonDown1;
         private System.Windows.Forms.Label labelSecond;
         private System.Windows.Forms.CheckBox checkBoxName2;
