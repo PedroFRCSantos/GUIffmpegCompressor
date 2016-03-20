@@ -1,29 +1,54 @@
-﻿using System;
-using System.Globalization;
-using System.Xml;
+﻿using System.Globalization;
 
 namespace GUIffmpeg
 {
-    public class LanguageManager
+    public partial class LanguageManager
     {
-        string languageName;
+        private string languageName;
 
-        string authorNameStr = "";
-        string authorEmailStr = "";
+        #region translation's author
+        private string authorNameStr = "";
+        private string authorEmailStr = "";
+        #endregion
 
-        string folderInStr;
-        string folderOutStr;
-        string browseStr;
+        #region folder in out translation
+        private string folderInStr;
+        private string folderOutStr;
+        private string browseStr;
+        #endregion
 
-        string upButtonName;
-        string downButtonName;
+        #region up down translation name
+        private string upButtonName;
+        private string downButtonName;
+        #endregion
 
-        string dateFormat1;
-        string dateFormat2;
-        string dateFormat3;
+        private string dateName;
 
-        string baseName;
-        string useName;
+        #region variables date format
+        private string dateFormat1;
+        private string dateFormat2;
+        private string dateFormat3;
+        #endregion
+
+        #region variables month tranlation name
+        private string nameJanuary;
+        private string nameFebruary;
+        private string nameMarch;
+        private string nameApril;
+        private string nameMay;
+        private string nameJune;
+        private string nameJuly;
+        private string nameAugust;
+        private string nameSeptember;
+        private string nameOctober;
+        private string nameNovember;
+        private string nameDecember;
+        #endregion
+
+        private string baseName;
+        private string userName;
+
+        private string convertName;
 
         public LanguageManager()
         {
@@ -40,129 +65,32 @@ namespace GUIffmpeg
             downButtonName = "down";
 
             // load default dateFormat
+            dateName = "File Date";
+
             dateFormat1 = "DDMMYYYYHHMMSS";
             dateFormat2 = "YYYYMMDDHHMMSS";
             dateFormat3 = "DDMouthYYYYHHMMSS";
 
+            nameJanuary = "January";
+            nameFebruary = "February";
+            nameMarch = "March";
+            nameApril = "Abril";
+            nameMay = "May";
+            nameJune = "June";
+            nameJuly = "July";
+            nameAugust = "August";
+            nameSeptember = "September";
+            nameOctober = "October";
+            nameNovember = "November";
+            nameDecember = "December";
+
             baseName = "Base Name (empty)";
-            useName = "User Name";
+            userName = "User Name";
+
+            convertName = "Convert";
 
             // try to open xml and read information
             readXMLInformation();
-        }
-
-        public string getNameFolderIn()
-        {
-            return (string)folderInStr.Clone();
-        }
-
-        public string getNameFolderOut()
-        {
-            return (string)folderOutStr.Clone();
-        }
-
-        public string getBrowse()
-        {
-            return (string)browseStr.Clone();
-        }
-
-        public string getUpName()
-        {
-            return (string)upButtonName.Clone();
-        }
-
-        public string getDownName()
-        {
-            return (string)downButtonName.Clone();
-        }
-
-        public string getDateFormat1()
-        {
-            return (string)dateFormat1.Clone();
-        }
-
-        public string getDateFormat2()
-        {
-            return (string)dateFormat2.Clone();
-        }
-
-        public string getDateFormat3()
-        {
-            return (string)dateFormat3.Clone();
-        }
-
-        public string getBaseName()
-        {
-            return (string)baseName.Clone();
-        }
-
-        public string getUseName()
-        {
-            return (string)useName.Clone();
-        }
-
-        private void readXMLInformation()
-        {
-            XmlTextReader reader = null;
-
-            try
-            {
-                reader = new XmlTextReader("Languages\\lang-" + languageName + ".xml");
-            }
-            catch
-            {
-                return;
-            }
-
-            bool readAuthorName = false;
-            bool readAuthorEmail = false;
-
-            bool folderIn = false;
-            bool folderOut = false;
-            bool browse = false;
-
-            while (reader.Read())
-            {
-                if (readAuthorName)
-                {
-                    authorNameStr = reader.Value;
-                    Console.WriteLine("Name: {0}", reader.Value);
-                }
-
-                if (readAuthorEmail)
-                {
-                    authorEmailStr = reader.Value;
-                    Console.WriteLine("Email: {0}", reader.Value);
-                }
-
-                if (folderIn)
-                {
-                    folderInStr = reader.Value;
-                    Console.WriteLine("Folder In: {0}", reader.Value);
-                }
-
-                if (folderOut)
-                {
-                    folderOutStr = reader.Value;
-                    Console.WriteLine("Folder Out: {0}", reader.Value);
-                }
-
-                if (browse)
-                {
-                    browseStr = reader.Value;
-                    Console.WriteLine("Browse: {0}", reader.Value);
-                }
-
-                readAuthorName = (reader.Name == "name" && reader.NodeType == XmlNodeType.Element);
-                readAuthorEmail = (reader.Name == "mail" && reader.NodeType == XmlNodeType.Element);
-
-                folderIn = (reader.Name == "folderIn" && reader.NodeType == XmlNodeType.Element);
-                folderOut = (reader.Name == "folderOut" && reader.NodeType == XmlNodeType.Element);
-                browse = (reader.Name == "browse" && reader.NodeType == XmlNodeType.Element);
-            }
-
-            reader.Close();
-            reader.Dispose();
         }
     }
 }

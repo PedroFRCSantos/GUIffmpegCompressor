@@ -14,6 +14,38 @@
 			
 			<browse>Encontrar</browse>
 		</folder>
+		
+		<stripMenu>
+		
+		</stripMenu>
+
+		<baseName>Nome base</baseName>
+		<dateName>Data do ficheiro</dateName>
+		
+		<dateType>
+			<DDMMYYYYHHMMSS>DDMMAAAAHHMMSS</DDMMYYYYHHMMSS>
+			<YYYYMMDDHHMMSS>AAAAMMDDHHmmSS</YYYYMMDDHHMMSS>
+			<DDMouthYYYYHHMMSS>DDMêsAAAAHHmmSS</DDMouthYYYYHHMMSS>
+		</dateType>
+		
+		<month>
+			<January>Janeiro</January>
+			<February>Fevereiro</February>
+			<March>Março</March>
+			<Abril>Abril</Abril>
+			<May>Maio</May>
+			<June>Junho</June>
+			<July>Julho</July>
+			<August>Agosto</August>
+			<September>Setembro</September>
+			<October>Outubro</October>
+			<November>Novembro</November>
+			<December>Dezembro</December>
+		</month>
+		
+		<up>cima</up>
+		<down>baixo</down>
+		
+		<convertName>Converter</convertName>
 	</mainGUI>
-	
 </xml>
